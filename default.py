@@ -63,6 +63,15 @@ def showerThought(bot, update):
 thoughts_handler = CommandHandler('thought', showerThought)
 dispatcher.add_handler(thoughts_handler)
 
+
+def gif(bot, update):
+    bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.UPLOAD_PHOTO)
+    bot.sendDocument(chat_id=update.message.chat_id, document=reddit.getGif())
+
+
+gifs_handler = CommandHandler('gif', gif)
+dispatcher.add_handler(gifs_handler)
+
 # def caps(bot, update, args):
 #    text_caps = ' '.join(args).upper() + '!!!'
 #    bot.sendMessage(chat_id=update.message.chat_id, text=text_caps)
