@@ -72,6 +72,13 @@ def gif(bot, update):
 gifs_handler = CommandHandler('gif', gif)
 dispatcher.add_handler(gifs_handler)
 
+def til(bot, update):
+    bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+    bot.sendMessage(chat_id=update.message.chat_id, text=reddit.getTIL())
+
+
+tils_handler = CommandHandler('til', til)
+dispatcher.add_handler(tils_handler)
 # def caps(bot, update, args):
 #    text_caps = ' '.join(args).upper() + '!!!'
 #    bot.sendMessage(chat_id=update.message.chat_id, text=text_caps)
@@ -79,8 +86,8 @@ dispatcher.add_handler(gifs_handler)
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
-#echo_handler = MessageHandler(Filters.text, echo)
-#dispatcher.add_handler(echo_handler)
+# echo_handler = MessageHandler(Filters.text, echo)
+# dispatcher.add_handler(echo_handler)
 
 
 def hello(bot, update):
@@ -119,12 +126,12 @@ def unknown(bot, update):
 
 unknown_handler = MessageHandler(Filters.command, unknown)
 dispatcher.add_handler(unknown_handler)
-#caps_handler = CommandHandler('caps', caps, pass_args=True)
-#dispatcher.add_handler(caps_handler)
+# caps_handler = CommandHandler('caps', caps, pass_args=True)
+# dispatcher.add_handler(caps_handler)
+
 
 def profile(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=bot.ChatAction.TYPING)
-
 
 
 updater.start_polling()
