@@ -8,7 +8,7 @@ Commands to be used:
 
 /Hello - generic hello message.
 
-/movies - Sends movies that are playing in Cinema-City Glilot [scrape from seret.co.il] (not working with the PythonAnywhere server due to inability to use urllib2 [not secure])
+/movies - Sends movies that are playing in Cinema-City Glilot (scrape from seret.co.il, not working with the PythonAnywhere server due to inability to use urllib2 (not secure))
 
 /gifs (won't work properly in mobile devices until getGifSize() will be implemented, works good on desktop.)
 
