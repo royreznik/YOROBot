@@ -47,3 +47,5 @@ def getTIL():
     return cur_til
 
 #def getSize(url): TODO implement getSize() so phone client will work properly
+
+# TODO implement function factory for getSUBREDDIT

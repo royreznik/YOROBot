@@ -12,6 +12,8 @@ import reddit
 # /movies
 # /thought
 # /Hello
+# /til
+# /gif
 
 dispatcher = None
 updater = None
@@ -56,6 +58,7 @@ dispatcher.add_handler(movies_handler)
 
 
 def showerThought(bot, update):
+    print update.message.chat_id
     print update.message.text
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=reddit.getThought())
@@ -65,6 +68,7 @@ dispatcher.add_handler(thoughts_handler)
 
 
 def gif(bot, update):
+    print update.message.chat_id
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.UPLOAD_PHOTO)
     bot.sendDocument(chat_id=update.message.chat_id, document=reddit.getGif())
 
@@ -73,6 +77,7 @@ gifs_handler = CommandHandler('gif', gif)
 dispatcher.add_handler(gifs_handler)
 
 def til(bot, update):
+    print update.message.chat_id
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=reddit.getTIL())
 
