@@ -24,6 +24,10 @@ tils = []
 for til in reddit.subreddit('TodayILearned').top('week'):
     tils.append(til.title[4:])
 
+jokes = []
+
+for joke in reddit.subreddit('Jokes').top('week'):
+    jokes.append(joke.title+" "+joke.selftext) 
 
 def getThought():
     thought = thoughts[int(random.random() * 100)]
@@ -45,6 +49,11 @@ def getTIL():
     cur_til = tils[int(random.random() * 100)]
     print cur_til
     return cur_til
+
+def getJoke():
+    cur_joke = jokes[int(random.random()*100)]
+    print cur_joke
+    return cur_joke
 
 #def getSize(url): TODO implement getSize() so phone client will work properly
 
