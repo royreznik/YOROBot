@@ -14,6 +14,7 @@ import reddit
 # /Hello
 # /til
 # /gif
+# /joke
 
 dispatcher = None
 updater = None
@@ -84,6 +85,14 @@ def til(bot, update):
 
 tils_handler = CommandHandler('til', til)
 dispatcher.add_handler(tils_handler)
+
+def joke(bot,update):
+    print update.message.chat.id
+    bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+    bot.sendMessage(chat_id=update.message.chat_id,text=reddit.getJoke())
+    
+jokes_handler = CommandHandler('joke', joke)
+dispatcher.add_handler(jokes_handler)
 # def caps(bot, update, args):
 #    text_caps = ' '.join(args).upper() + '!!!'
 #    bot.sendMessage(chat_id=update.message.chat_id, text=text_caps)
